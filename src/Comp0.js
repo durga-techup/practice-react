@@ -1,16 +1,11 @@
 import React, { useContext } from 'react'
-
 import { ToastContext } from './App';
 import { useSelector, useDispatch } from 'react-redux'
 import { popNotification, pushNotification } from './redux/reducers';
 import { useNavigate } from 'react-router-dom';
 function Comp0() {
-   
-    const { setShow } = useContext(ToastContext)
-    const { isShow } = useContext(ToastContext)
     const dispatch = useDispatch()
     const showNotification = useSelector(state => state.todos.copmleted)
-    console.log(showNotification)
     const navigate = useNavigate()
     const fetchall = async () => {
         const apiUrl = process.env.REACT_APP_API_PATH_URI;
@@ -26,7 +21,7 @@ function Comp0() {
     return (
         <div>
             <h1>
-                Hello 100{" "} {showNotification ? "Yes" : ""}
+                Hello{" "} {showNotification ? "Yes" : ""}
                 <br />
                 <button onClick={() => {
                     navigate("/1")
@@ -54,7 +49,7 @@ function Comp0() {
 
             </section>
 
-            
+
         </div>
     )
 }
