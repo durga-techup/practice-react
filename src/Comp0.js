@@ -39,7 +39,7 @@ function Comp0() {
 
                     }}
                 >
-                    Click 0
+                    Click 000
                 </button>{" "}
             </h1>
             <section>
