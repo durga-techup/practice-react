@@ -1,7 +1,11 @@
 FROM node:latest
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm config set registry https://registry.npmjs.cf
+RUN npm cache clean --force
+ENV NODE_OPTIONS=--max-old-space-size=4096
+RUN npm install --fetch-retries=5 --fetch-retry-mintimeout=20000 --fetch-retry-maxtimeout=120000 --verbose
 COPY . .
+EXPOSE 3000
 ENV CHOKIDAR_USEPOLLING=true
 CMD [ "npm", "start"]
